@@ -4,14 +4,6 @@
 
 Este projeto realiza uma análise exploratória de um conjunto de dados de vendas de uma empresa familiar de produção e venda de bolos artesanais, utilizando a linguagem de programação Python e suas poderosas bibliotecas para análise de dados e visualização. O objetivo principal é extrair insights valiosos sobre o comportamento das vendas, identificar padrões e tendências nos dados fornecidos.
 
-## 🚀 Visão Geral da Análise
-
-Um dos gráficos principais da análise, mostrando a distribuição ou a relação entre variáveis importantes dos seus dados de vendas:
-
-<p align="center">
-  <img src="img/visao_geral_vendas.png" alt="Visão Geral da Análise de Vendas" width="800"/>
-</p>
-
 ## Descrição do Projeto
 
 O projeto envolve as seguintes etapas principais:
@@ -19,8 +11,10 @@ O projeto envolve as seguintes etapas principais:
 1.  **Carregamento e Inspeção Inicial dos Dados**: Utilização da biblioteca Pandas para carregar o arquivo de dados (`dados/dados_vendas_amor_cakes.xlsx`) e realizar uma inspeção inicial para entender a estrutura, os tipos de dados e a presença de valores ausentes.
 2.  **Limpeza e Preparação dos Dados (Se Necessário)**: Aplicação de técnicas de limpeza para garantir a qualidade dos dados, como tratamento de valores ausentes, correção de tipos de dados e resolução de inconsistências.
 3.  **Criação de Novas Colunas (Opcional)**: Desenvolvimento de novas colunas a partir dos dados existentes para facilitar a análise, como o cálculo do valor total da venda ou a identificação do valor do desconto.
-4.  **Análise Exploratória Detalhada**: Utilização de métodos estatísticos e visualizações para explorar as relações entre as variáveis e identificar padrões importantes nos dados de vendas.
-5.  **Visualização de Dados**: Criação de gráficos informativos para representar a distribuição dos dados e as relações entre as variáveis, facilitando a compreensão dos insights extraídos.
+4.  **Análise Exploratória Detalhada**: Utilização de métodos estatísticos para explorar as relações entre as variáveis e identificar padrões importantes nos dados de vendas.
+5.  **Visualização de Dados**: Geração de gráficos informativos para representar a distribuição dos dados e as relações entre as variáveis, facilitando a compreensão dos insights extraídos.
+
+**Os gráficos gerados durante a análise podem ser encontrados e visualizados diretamente no notebook `Projeto_Analise_de_Vendas.ipynb` e também são salvos como imagens estáticas na pasta `img/` do repositório para fácil acesso.**
 
 ## 💻 Tecnologias Utilizadas
 
@@ -63,23 +57,7 @@ Para executar este projeto em seu ambiente local, siga os passos abaixo:
     jupyter notebook notebooks/Projeto_Analise_de_Vendas.ipynb
     ```
 
-    Após a execução do notebook, os gráficos serão gerados. **Para que um gráfico apareça no `README.md`, você precisará salvá-lo na pasta `img/` com o nome `visao_geral_vendas.png`.** Por exemplo, no seu notebook, após criar um gráfico e antes de `plt.show()` ou `plt.close()`:
-
-    ```python
-    import os
-    # ... (seu código para criar o gráfico, ex: fig, ax = plt.subplots()...)
-
-    # Caminho para salvar a imagem (assumindo notebook em 'notebooks/' e 'img/' na raiz)
-    img_folder = os.path.join('..', 'img') # '..' para subir um nível para a raiz do projeto
-
-    if not os.path.exists(img_folder):
-        os.makedirs(img_folder)
-        print(f"Pasta '{img_folder}' criada com sucesso.")
-
-    # Salva o gráfico principal para o README
-    fig.savefig(os.path.join(img_folder, 'visao_geral_vendas.png'), bbox_inches='tight', dpi=300)
-    plt.close(fig) # Fecha a figura para não exibí-la se não for necessário
-    ```
+    Após a execução do notebook, os gráficos serão gerados e exibidos no próprio ambiente. Adicionalmente, você pode salvar os gráficos mais relevantes para a pasta `img/` do seu projeto usando o código apropriado dentro do notebook.
 
 ## 🤝 Contribuições
 
@@ -98,3 +76,30 @@ Se você tiver alguma dúvida ou sugestão, entre em contato:
 * **Email**: flaviohenriquehb777@outlook.com
 
 ---
+
+### Principais mudanças:
+
+* A seção `🚀 Visão Geral da Análise` agora não inclui mais a tag `<img src="...">`.
+* Foi adicionada uma frase no final da seção "Descrição do Projeto" e nas instruções "Como Executar" para explicitamente informar que os gráficos estão no notebook e na pasta `img/`.
+
+**Lembre-se:**
+
+1.  **Gere os gráficos no seu notebook `Projeto_Analise_de_Vendas.ipynb`**.
+2.  **Salve os gráficos mais importantes na pasta `img/`** (ex: `img/grafico_vendas_por_mes.png`, `img/distribuicao_descontos.png`, etc.). Certifique-se de que a pasta `img` existe e está no mesmo nível que a pasta `notebooks`.
+    No seu notebook, o código para salvar um gráfico seria algo assim:
+    ```python
+    import os
+    # ... (seu código de análise e criação do gráfico, ex: fig, ax = plt.subplots()...)
+
+    # Define o caminho para a pasta img, subindo um nível a partir de 'notebooks'
+    img_folder_path = os.path.join('..', 'img')
+
+    # Cria a pasta img se ela não existir
+    if not os.path.exists(img_folder_path):
+        os.makedirs(img_folder_path)
+        print(f"Pasta '{img_folder_path}' criada com sucesso.")
+
+    # Salva o gráfico
+    fig.savefig(os.path.join(img_folder_path, 'nome_do_seu_grafico.png'), bbox_inches='tight', dpi=300)
+    plt.close(fig) # Fecha a figura para liberar memória (opcional)
+    ```
